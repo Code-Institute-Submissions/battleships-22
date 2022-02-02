@@ -39,3 +39,56 @@ class Board:
             if self.type == "player":
                 self.board[x][y] = "@"
     
+def random_point(size):
+    """
+    Returns a random point between zero and the size
+    """
+    return randint(0, size-1)
+
+def validate_coordinates(x, y, board):
+    """
+    Checks if the coordinates are correct
+    """
+
+def populate_board(board):
+    """
+    Adds all the elements needed to start playing the game to the board
+    """
+
+def make_guess(board):
+    """
+    function that lets the computer make a choice
+    """
+
+def play_game(computer_board, player_board):
+    """
+    Lets user play the game
+    """
+
+def new_game():
+    """
+    Starts a new game. Sets the board size and number of ships, resets the scores and initialises the boards
+    """
+
+    size = 5
+    num_ships = 4
+    scores["computer"] = 0
+    scores["player"] = 0
+    print("\n")
+    print("Welcome to battleships")
+    print(f"Board size: {size}. Number of ships: {num_ships}")
+    print("Top left corner is row:0 column:0")
+    print("\n")
+    player_name = input("Please enter your name: \n")
+    print("\n")
+
+    computer_board = Board(size, num_ships, "Computer", type = "computer")
+    player_board = Board(size, num_ships, player_name, type = "player")
+
+    for _ in range(num_ships):
+        populate_board(player_board)
+        populate_board(computer_board)
+
+    play_game(computer_board, player_board)
+
+new_game()
