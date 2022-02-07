@@ -8,12 +8,12 @@ class Board:
     board type (player or computer) and has methods for 
     adding ships and geusses and printing the board
     """
-    def __init__(self, num_ships, name, type):
+    def __init__(self, size, num_ships, board_name, board_type):
         self.size = size
         self.board = [["." for x in range(size)] for y in range(size)]
         self.num_ships = num_ships
-        self.name = name
-        self.type = type 
+        self.name = board_name
+        self.type = board_type 
         self.guesses = []
         self.ships = []
 
@@ -82,8 +82,8 @@ def new_game():
     player_name = input("Please enter your name: \n")
     print("\n")
 
-    computer_board = Board(size, num_ships, "Computer", type = "computer")
-    player_board = Board(size, num_ships, player_name, type = "player")
+    computer_board = Board(size, num_ships, "Computer",board_type="computer")
+    player_board = Board(size, num_ships, player_name,board_type="player")
 
     for _ in range(num_ships):
         populate_board(player_board)
