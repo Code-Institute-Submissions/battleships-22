@@ -54,6 +54,10 @@ def populate_board(board):
     """
     Adds all the elements needed to start playing the game to the board
     """
+    board.board
+    board.print()
+    return board
+    print(board)
 
 def make_guess(board):
     """
