@@ -18,6 +18,9 @@ class Board:
         self.ships = []
 
     def print(self):
+        """
+        Removes everything from the board list except the dots that make it up
+        """
         for row in self.board:
             print(" ".join(row))
 
@@ -54,10 +57,10 @@ def populate_board(board):
     """
     Adds all the elements needed to start playing the game to the board
     """
-    board.board
+    print(board.name+"'s board:")
     board.print()
     return board
-    print(board)
+    
 
 def make_guess(board):
     """
@@ -86,10 +89,10 @@ def new_game():
     player_name = input("Please enter your name: \n")
     print("\n")
 
-    computer_board = Board(size, num_ships, "Computer",board_type="computer")
-    player_board = Board(size, num_ships, player_name,board_type="player")
+    computer_board = Board(size, num_ships, "Computer", board_type="computer")
+    player_board = Board(size, num_ships, player_name, board_type="player")
 
-    for _ in range(num_ships):
+    for _ in range(1):
         populate_board(player_board)
         populate_board(computer_board)
 
