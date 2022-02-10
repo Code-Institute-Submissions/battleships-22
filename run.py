@@ -25,6 +25,9 @@ class Board:
             print(" ".join(row))
 
     def guess(self, x, y):
+        """
+        guesses where the ships might be
+        """
         self.guesses.append((x, y))
         self.board[x][y] = "X"
 
@@ -35,6 +38,9 @@ class Board:
             return "Miss"
 
     def add_ship(self, x, y, type="computer"):
+        """
+        adds a ship
+        """
         if len(self.ships) >= self.num_ships:
             print("Error: you cannot add anymore ships!")
         else:
