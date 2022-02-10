@@ -52,7 +52,12 @@ def random_point(size):
     """
     Returns a random point between zero and the size
     """
-    return randint(0, size-1)
+    global x
+    global y
+    x = randint(0, size-1)
+    y = randint(0, size-1)
+    return x
+    return y
 
 def validate_coordinates(x, y, board):
     """
@@ -64,8 +69,9 @@ def populate_board(board):
     Adds all the elements needed to start playing the game to the board
     """
     print(board.name+"'s board:")
+    board.add_ship(x, y)
     board.print()
-    return board
+    
     
 
 def make_guess(board):
