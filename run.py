@@ -71,9 +71,6 @@ def populate_board(board):
     """
     print(board.name+"'s board:")
     board.add_ship(X, Y)
-    board.add_ship(X, Y)
-    board.add_ship(X, Y)
-    board.add_ship(X, Y)
     board.print()
     print(X)
     print(Y)
