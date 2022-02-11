@@ -47,18 +47,18 @@ class Board:
             self.ships.append((x, y))
             if self.type == "player":
                 self.board[x][y] = "@"
-    
-x = 0
-y = 0
 
-def random_point(size):
+def random_point(size=5):
     """
     Returns a random point between zero and the size
     """
-    x = randint(0, size-1)
-    y = randint(0, size-1)
-    return x
-    return y
+    global X
+    global Y
+    
+    X = randint(0, size-1)
+    Y = randint(0, size-1)
+    
+random_point()
 
 def validate_coordinates(x, y, board):
     """
@@ -70,12 +70,14 @@ def populate_board(board):
     Adds all the elements needed to start playing the game to the board
     """
     print(board.name+"'s board:")
-    board.add_ship(x, y)
+    board.add_ship(X, Y)
+    board.add_ship(X, Y)
+    board.add_ship(X, Y)
+    board.add_ship(X, Y)
     board.print()
-    print(x, y)
+    print(X)
+    print(Y)
     
-    
-
 def make_guess(board):
     """
     function that lets the computer make a choice
@@ -90,7 +92,6 @@ def new_game():
     """
     Starts a new game. Sets the board size and number of ships, resets the scores and initialises the boards
     """
-
     size = 5
     num_ships = 4
     scores["computer"] = 0
