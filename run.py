@@ -48,12 +48,13 @@ class Board:
             if self.type == "player":
                 self.board[x][y] = "@"
     
+x = 0
+y = 0
+
 def random_point(size):
     """
     Returns a random point between zero and the size
     """
-    global x
-    global y
     x = randint(0, size-1)
     y = randint(0, size-1)
     return x
@@ -71,6 +72,7 @@ def populate_board(board):
     print(board.name+"'s board:")
     board.add_ship(x, y)
     board.print()
+    print(x, y)
     
     
 
