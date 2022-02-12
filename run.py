@@ -41,14 +41,17 @@ class Board:
         """
         adds a ship
         """
-        if len(self.ships) >= self.num_ships:
-            print("Error: you cannot add anymore ships!")
-        else:
-            self.ships.append((x, y))
-            if self.type == "player":
-                self.board[x][y] = "@"
-
-def random_point(size=5):
+        num_ships = 4
+        active = True
+        while active:
+            if len(self.ships) > self.num_ships:
+                active = False
+            else:
+                self.ships.append((x,y))
+                if self.type == "player":
+                    self.board[x][y] = "@"
+        
+def random_point(size = 5):
     """
     Returns a random point between zero and the size
     """
