@@ -59,6 +59,8 @@ def random_point(size = 5):
     Returns a random point between zero and the size
     """
 
+user_inputs = []
+
 def validate_coordinates(x, y):
     """
     Checks if the coordinates are correct
@@ -75,6 +77,9 @@ def validate_coordinates(x, y):
                 continue
             elif xi > 4 or yi > 4:
                 print("Numbers must be between 0 and 4")
+                continue
+            elif xi in user_inputs or yi in user_inputs:
+                print("You cannot choose a row and column more than once")
                 continue
             else:
                 return xi
