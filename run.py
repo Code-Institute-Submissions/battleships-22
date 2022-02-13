@@ -44,8 +44,6 @@ class Board:
         num_ships = 4
         active = True
         while active:
-            global R 
-            global T
             R = randint(0, 4)
             T = randint(0, 4)
             if len(self.ships) == self.num_ships:
@@ -53,27 +51,46 @@ class Board:
             else:
                 self.ships.append((R, T))
                 if self.type == "player":
-                    self.board[x][y] = "@"
-                    print(str(R)+"R")
-                    print(str(T)+"T")
+                    self.board[R][T] = "@"
     
         
 def random_point(size = 5):
     """
     Returns a random point between zero and the size
     """
-    global X
-    global Y
-    
-    X = randint(0, size-1)
-    Y = randint(0, size-1)
-    
-random_point()
 
-def validate_coordinates(x, y, board):
+def validate_coordinates(x, y):
     """
     Checks if the coordinates are correct
     """
+    active = True
+    while active:
+        x = input("Guess a row: \n")
+        y = input("Guess a column: \n")
+        try:
+            xi = int(x)
+            yi = int(y)
+            if xi < 0 or yi < 0:
+                print("Numbers must be between 0 and 4")
+                continue
+            elif xi > 4 or yi > 4:
+                print("Numbers must be between 0 and 4")
+                continue
+            else:
+                return xi
+                return yi
+                active = False
+        except ValueError:
+            print("You must enter a number between 0 and 4")
+            continue
+
+x = "lo"
+y = "lm"
+
+
+
+X = 0
+Y = 0
 
 def populate_board(board):
     """
@@ -82,8 +99,6 @@ def populate_board(board):
     print(board.name+"'s board:")
     board.add_ship(X, Y)
     board.print()
-    #print(X)
-    #print(Y)
     
 def make_guess(board):
     """
@@ -117,6 +132,8 @@ def new_game():
     for _ in range(1):
         populate_board(player_board)
         populate_board(computer_board)
+    
+    coordinates = validate_coordinates(x,y)
 
     play_game(computer_board, player_board)
 
