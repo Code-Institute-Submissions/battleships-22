@@ -82,9 +82,8 @@ def validate_coordinates(x, y):
                 print("You cannot choose a row and column more than once")
                 continue
             else:
-                return xi
-                return yi
                 active = False
+                return xi, yi
         except ValueError:
             print("You must enter a number between 0 and 4")
             continue
