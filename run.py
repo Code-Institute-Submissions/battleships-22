@@ -44,12 +44,19 @@ class Board:
         num_ships = 4
         active = True
         while active:
-            if len(self.ships) > self.num_ships:
+            global R 
+            global T
+            R = randint(0, 4)
+            T = randint(0, 4)
+            if len(self.ships) == self.num_ships:
                 active = False
             else:
-                self.ships.append((x,y))
+                self.ships.append((R, T))
                 if self.type == "player":
                     self.board[x][y] = "@"
+                    print(str(R)+"R")
+                    print(str(T)+"T")
+    
         
 def random_point(size = 5):
     """
@@ -75,8 +82,8 @@ def populate_board(board):
     print(board.name+"'s board:")
     board.add_ship(X, Y)
     board.print()
-    print(X)
-    print(Y)
+    #print(X)
+    #print(Y)
     
 def make_guess(board):
     """
