@@ -62,7 +62,7 @@ def random_point(size = 5):
 user_inputs = []
 print(user_inputs)
 
-def validate_coordinates(x, y):
+def validate_coordinates():
     """
     Checks if the coordinates are correct
     """
@@ -84,11 +84,14 @@ def validate_coordinates(x, y):
                 continue
             else:
                 user_inputs.extend([xi, yi])
-                print(user_inputs)
+                print("player guessed: "+str(xi),",", str(yi))
                 active = False
+                return xi, yi
         except ValueError:
             print("You must enter a number between 0 and 4")
             continue
+
+
 
 x = "lo"
 y = "lm"
@@ -115,6 +118,12 @@ def play_game(computer_board, player_board):
     """
     Lets user play the game
     """
+    g = validate_coordinates()
+    cph = computer_board.guess(xi, yi)
+    if cph == "Hit":
+        print("player scored a hit")
+    else:
+        print("player missed this time")
 
 def new_game():
     """
@@ -139,7 +148,7 @@ def new_game():
         populate_board(player_board)
         populate_board(computer_board)
     
-    coordinates = validate_coordinates(x,y)
+    coordinates = validate_coordinates()
 
     play_game(computer_board, player_board)
 
