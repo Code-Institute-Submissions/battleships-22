@@ -60,6 +60,7 @@ def random_point(size = 5):
     """
 
 user_inputs = []
+print(user_inputs)
 
 def validate_coordinates(x, y):
     """
@@ -82,8 +83,9 @@ def validate_coordinates(x, y):
                 print("You cannot choose a row and column more than once")
                 continue
             else:
+                user_inputs.extend([xi, yi])
+                print(user_inputs)
                 active = False
-                return xi, yi
         except ValueError:
             print("You must enter a number between 0 and 4")
             continue
