@@ -119,6 +119,18 @@ def play_game(computer_board, player_board):
     else:
         print("player missed this time")
 
+    r = randint(0, 4)
+    w = randint(0, 4)
+
+    print("computer guessed: "+str(r), ",", str(w))
+
+    ph = player_board.guess(r, w)
+
+    if ph == "Hit":
+        print("computer scored a hit")
+    else:
+        print("computer missed this time")
+
 def new_game():
     """
     Starts a new game. Sets the board size and number of ships, resets the scores and initialises the boards
