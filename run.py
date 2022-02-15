@@ -60,7 +60,6 @@ def random_point(size = 5):
     """
 
 user_inputs = []
-print(user_inputs)
 
 def validate_coordinates():
     """
@@ -71,6 +70,8 @@ def validate_coordinates():
         x = input("Guess a row: \n")
         y = input("Guess a column: \n")
         try:
+            global xi
+            global yi 
             xi = int(x)
             yi = int(y)
             if xi < 0 or yi < 0:
@@ -79,23 +80,17 @@ def validate_coordinates():
             elif xi > 4 or yi > 4:
                 print("Numbers must be between 0 and 4")
                 continue
-            elif xi in user_inputs or yi in user_inputs:
+            elif [xi, yi] in user_inputs:
                 print("You cannot choose a row and column more than once")
                 continue
             else:
                 user_inputs.extend([xi, yi])
-                print("player guessed: "+str(xi),",", str(yi))
+                print("player guessed: "+str(xi), ",", str(yi))
                 active = False
                 return xi, yi
         except ValueError:
             print("You must enter a number between 0 and 4")
             continue
-
-
-
-x = "lo"
-y = "lm"
-
 
 
 X = 0
@@ -118,7 +113,6 @@ def play_game(computer_board, player_board):
     """
     Lets user play the game
     """
-    g = validate_coordinates()
     cph = computer_board.guess(xi, yi)
     if cph == "Hit":
         print("player scored a hit")
