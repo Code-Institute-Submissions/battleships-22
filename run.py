@@ -84,7 +84,7 @@ def validate_coordinates():
                 print("You cannot choose a row and column more than once")
                 continue
             else:
-                user_inputs.extend([xi, yi])
+                user_inputs.append([xi, yi])
                 print("player guessed: "+str(xi), ",", str(yi))
                 active = False
                 return xi, yi
@@ -108,6 +108,11 @@ def make_guess(board):
     """
     function that lets the computer make a choice
     """
+    global r
+    global w
+    r = randint(0, 4)
+    w = randint(0, 4)
+    return r, w
 
 def play_game(computer_board, player_board):
     """
@@ -119,8 +124,7 @@ def play_game(computer_board, player_board):
     else:
         print("player missed this time")
 
-    r = randint(0, 4)
-    w = randint(0, 4)
+    make_guess(computer_board)
 
     print("computer guessed: "+str(r), ",", str(w))
 
