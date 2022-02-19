@@ -67,7 +67,7 @@ def validate_coordinates():
     """
     active = True
     while active:
-        x = input("Guess a row: \n")
+        x = input("\nGuess a row: \n")
         y = input("Guess a column: \n")
         try:
             global xi
@@ -147,7 +147,7 @@ def new_game():
     scores["player"] = 0
     print("\n")
     print("Welcome to battleships")
-    print(f"Board size: {size}. Number of ships: {num_ships}")
+    print(f"Board size: {size}. Number of ships: {num_ships}. Number of rounds: 5")
     print("Top left corner is row:0 column:0")
     print("\n")
     player_name = input("Please enter your name: \n")
@@ -168,7 +168,14 @@ def new_game():
         play_game(computer_board, player_board)
             
         if round == 5:
-            print("game has ended")
+            print("\ngame has ended")
+            print(f"The scores are Player:{scores['player']} Computer:{scores['computer']}")
+            if scores['player'] > scores['computer']:
+                print('You win!')
+            elif scores['player'] == scores['computer']:
+                print('its a draw')
+            else:
+                print('You lose better luck next time!')
             running = False
         else:
             print("\nafter this round the scores are:")
