@@ -166,6 +166,11 @@ def new_game():
         coordinates = validate_coordinates()
 
         play_game(computer_board, player_board)
+
+        print(f"\n{player_name}'s board:")
+        player_board.print()
+        print(f"Computer's board:")
+        computer_board.print()
             
         if round == 5:
             print("\ngame has ended")
@@ -173,7 +178,7 @@ def new_game():
             if scores['player'] > scores['computer']:
                 print('You win!')
             elif scores['player'] == scores['computer']:
-                print('its a draw')
+                print('Its a draw!')
             else:
                 print('You lose better luck next time!')
             running = False
@@ -182,6 +187,12 @@ def new_game():
             print(f"Player:{scores['player']} Computer:{scores['computer']}")
             
         print(f"\nEnd of round {round}")
+
+        cont = input("\nEnter n to quit or anything else to continue : ")
+        if cont == "n":
+            print(f"\nGame has ended the scores are Player:{scores['player']} Computer:{scores['computer']}")
+            running = False
+
         round = round + 1
 
 new_game()
