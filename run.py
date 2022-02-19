@@ -85,7 +85,7 @@ def validate_coordinates():
                 continue
             else:
                 user_inputs.append([xi, yi])
-                print("player guessed: "+str(xi), ",", str(yi))
+                print("\nplayer guessed: "+str(xi), ",", str(yi))
                 active = False
                 return xi, yi
         except ValueError:
@@ -121,17 +121,19 @@ def play_game(computer_board, player_board):
     cph = computer_board.guess(xi, yi)
     if cph == "Hit":
         print("player scored a hit")
+        scores['player'] += 1
     else:
         print("player missed this time")
 
     make_guess(computer_board)
-
-    print("computer guessed: "+str(r), ",", str(w))
+    
+    print("\ncomputer guessed: "+str(r), ",", str(w))
 
     ph = player_board.guess(r, w)
 
     if ph == "Hit":
         print("computer scored a hit")
+        scores['computer'] += 1
     else:
         print("computer missed this time")
 
@@ -157,9 +159,22 @@ def new_game():
     for _ in range(1):
         populate_board(player_board)
         populate_board(computer_board)
-    
-    coordinates = validate_coordinates()
 
-    play_game(computer_board, player_board)
+    running = True
+    round = 1
+    while running:
+        coordinates = validate_coordinates()
+
+        play_game(computer_board, player_board)
+            
+        if round == 5:
+            print("game has ended")
+            running = False
+        else:
+            print("\nafter this round the scores are:")
+            print(f"Player:{scores['player']} Computer:{scores['computer']}")
+            
+        print(f"\nEnd of round {round}")
+        round = round + 1
 
 new_game()
