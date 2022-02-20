@@ -1,11 +1,12 @@
 from random import randint
 
-scores = {'computer':0,'player':0}
+scores = {'computer': 0 ,'player': 0}
+
 
 class Board:
     """
     This class sets board size, number of ships,player name,
-    board type (player or computer) and has methods for 
+    board type (player or computer) and has methods for
     adding ships and geusses and printing the board
     """
     def __init__(self, size, num_ships, board_name, board_type):
@@ -52,12 +53,6 @@ class Board:
                 self.ships.append((R, T))
                 if self.type == "player":
                     self.board[R][T] = "@"
-    
-        
-def random_point(size = 5):
-    """
-    Returns a random point between zero and the size
-    """
 
 user_inputs = []
 
@@ -139,7 +134,8 @@ def play_game(computer_board, player_board):
 
 def new_game():
     """
-    Starts a new game. Sets the board size and number of ships, resets the scores and initialises the boards
+    Starts a new game. Sets the board size and number of ships, resets the
+    scores and initialises the boards
     """
     size = 5
     num_ships = 4
@@ -147,7 +143,7 @@ def new_game():
     scores["player"] = 0
     print("\n")
     print("Welcome to battleships")
-    print(f"Board size: {size}. Number of ships: {num_ships}. Number of rounds: 5")
+    print(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5")
     print("Top left corner is row:0 column:0")
     print("\n")
     player_name = input("Please enter your name: \n")
@@ -169,12 +165,13 @@ def new_game():
 
         print(f"\n{player_name}'s board:")
         player_board.print()
-        print(f"Computer's board:")
+        print("Computer's board:")
         computer_board.print()
             
         if round == 5:
             print("\ngame has ended")
-            print(f"The scores are Player:{scores['player']} Computer:{scores['computer']}")
+            print("The scores are:")
+            print(f" Player:{scores['player']} Computer:{scores['computer']}")
             if scores['player'] > scores['computer']:
                 print('You win!')
             elif scores['player'] == scores['computer']:
@@ -190,9 +187,12 @@ def new_game():
 
         cont = input("\nEnter n to quit or anything else to continue : ")
         if cont == "n":
-            print(f"\nGame has ended the scores are Player:{scores['player']} Computer:{scores['computer']}")
+            print("\nGame has ended the scores are: ")
+            print(f"Player:{scores['player']} Computer:{scores['computer']}")
             running = False
 
         round = round + 1
 
 new_game()
+
+
