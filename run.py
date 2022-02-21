@@ -185,7 +185,7 @@ def new_game():
             
         print(f"\nEnd of round {round}")
 
-        cont = input("\nEnter n to quit or anything else to continue : ")
+        cont = input("\nEnter n to quit or anything else to continue : \n")
         if cont == "n":
             print("\nGame has ended the scores are: ")
             print(f"Player:{scores['player']} Computer:{scores['computer']}")
