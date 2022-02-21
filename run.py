@@ -145,6 +145,7 @@ def new_game():
     print("Welcome to battleships")
     print(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5")
     print("Top left corner is row:0 column:0")
+    print("Click run program to restart game")
     print("\n")
     player_name = input("Please enter your name: \n")
     print("\n")
