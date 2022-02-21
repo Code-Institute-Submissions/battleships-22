@@ -1,31 +1,75 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleships game
 
-Welcome kylo74,
+This is a website that lets a user play a game of battleships against a computer
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Contents
 
-## Reminders
+* Owner goals
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+* User goals
 
-## Creating the Heroku app
+* Layout
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+* Features
 
-1. `heroku/python`
-2. `heroku/nodejs`
+* Structure
+    * Flowchart
+    * Detailed explanation
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+* Technologies
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* Testing 
 
-Connect your GitHub repository and deploy as normal.
+* Issues
 
-## Constraints
+* Deployment
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+* Credits
 
------
-Happy coding!
+# Goals
+
+## Owner goals
+
+- Make a battleships game in python, test my skills as a programmer and provide a fun
+, interactive chance based game.
+
+## User goals
+
+- Play a fun interactive chance based game, be aware of their progress and be able to
+quit and restart the game at their own discretion.
+
+# Layout
+
+### Start
+
+![Start](images/start.png)
+
+- When the user starts the game the number of rounds, ships and the board size is 
+displayed to them.
+- After that they are prompted to enter their name
+
+### Name entered
+
+![Name](images/name.png)
+
+- After the user enters their name their board and the computers board is printed
+- They are then prompted to guess a row and a column
+
+### After guess
+
+![Guess](images/guess.png)
+
+- After the player guesses a row and a column the program displays where the player
+guessed and if they scored a hit then it does the same for the computer
+- Then it prints the player and computer's board it marks a miss on the board with
+X and a hit with *
+- Then it asks the player if they would like to continue playing or quit 
+- If they quit the game ends and the score is displayed, if they continue the user
+is prompted to guess an row and a column again and the same thing happens until 
+they have played 5 rounds when they have played 5 rounds the game ends.
+
+### Flowchart
+
+![Flowchart](images/flowchart.png)
+
+- Above is a flowchart that I made in lucidchart to help me plan out my project
