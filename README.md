@@ -144,3 +144,14 @@ nodejs buildpack
 and that was the end of the deployment
 
 Here is a link to my site: https://battleships-ultimate.herokuapp.com/
+
+## Credits
+
+- I some of the code from the 3rd portfolio project scoping video to help make the basic structure of the program
+and to help me decide what functions I was going to use
+
+Here is the code I added using the scoping video
+
+![Code1](assets/1.png)
+![Code2](assets/2.png)
+![Code3](assets/3.png)
