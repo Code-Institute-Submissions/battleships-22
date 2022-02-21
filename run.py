@@ -38,7 +38,7 @@ class Board:
         else:
             return "Miss"
 
-    def add_ship(self, x, y, type="computer"):
+    def add_ship(self, type="computer"):
         """
         adds a ship
         """
@@ -89,16 +89,12 @@ def validate_coordinates():
             continue
 
 
-X = 0
-Y = 0
-
-
 def populate_board(board):
     """
     Adds all the elements needed to start playing the game to the board
     """
     print(board.name+"'s board:")
-    board.add_ship(X, Y)
+    board.add_ship()
     board.print()
 
 
