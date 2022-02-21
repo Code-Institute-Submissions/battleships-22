@@ -74,17 +74,17 @@ they have played 5 rounds when they have played 5 rounds the game ends.
 
 ## Features
 
-The game allows the user to: 
+### The game allows the user to: 
 - Enter their name 
 - Keep playing, quit or restart whenever they want
 
-The game provides feedback in the form:
+### The game provides feedback in the form:
 - Of telling the user if input is valid
 - Displaying the score after a round is played
 - Marking the board with an X where there was a guess that missed
 - Marking the board with an asterisk where there was a hit
 
-It provides valuable information in the start screen such as:
+### It provides valuable information in the start screen such as:
 - The number of ships 
 - The board size
 - The number of ships
@@ -93,6 +93,54 @@ It provides valuable information in the start screen such as:
 
 ## Missing features
 
-If I had more time I would have:
+### If I had more time I would have:
 - Found a way to add make the terminal text colored
 - Found a way to stop ships from being duplicated
+
+## Technologies
+
+### I used the following to make the project:
+- Code institute template for the third portfolio project
+- Python to generate the board, ships,take in user input and 
+update the board
+- Gitpod to add code and assets to my project
+- Github for version control and storing my project
+- The pep8 online check website to check for errors and fix 
+them
+- Heroku to deploy my website
+- Lucid chart to make a flow chart that I would use to plan 
+out my website
+
+## Testing 
+
+### Validator testing 
+
+![Test](images/test.png)
+
+- I used the pep8 online checker to make sure that there 
+are no significant errors in my code
+
+## Issues
+
+* Sometimes the ships can be duplicated on the same row 
+and column
+
+* Having to confirm that you want to continue might 
+become tedious
+
+## Deployment
+
+I deployed my site to heroku using the following steps:
+- I made the final changes to my code and pushed them to 
+github
+- Logged into my heroku account
+- Selected the option to create a new app
+- Named my project battleships-ultimate then clicked create app
+- In the settings section I added the python buildpack and the 
+nodejs buildpack
+- Then I went to the deploy section and connected to github
+- Then I selected my battleships repository and connected it
+- Then I enabled automatic deploys and clicked deploy branch 
+and that was the end of the deployment
+
+Here is a link to my site: https://battleships-ultimate.herokuapp.com/
