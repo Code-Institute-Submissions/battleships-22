@@ -147,11 +147,13 @@ Here is a link to my site: https://battleships-ultimate.herokuapp.com/
 
 ## Credits
 
-- I some of the code from the 3rd portfolio project scoping video to help make the basic structure of the program
+- I used some of the code from the 3rd portfolio project scoping video to help make the basic structure of the program
 and to help me decide what functions I was going to use
 
 Here is the code I added using the scoping video
 
-![Code1](assets/1.png)
-![Code2](assets/2.png)
-![Code3](assets/3.png)
+![Code1](images/1.png)
+
+![Code2](images/2.png)
+
+![Code3](images/3.png)
