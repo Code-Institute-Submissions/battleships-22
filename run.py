@@ -1,6 +1,6 @@
 from random import randint
 
-scores = {'computer': 0 ,'player': 0}
+scores = {'computer': 0, 'player': 0}
 
 
 class Board:
@@ -56,6 +56,7 @@ class Board:
 
 user_inputs = []
 
+
 def validate_coordinates():
     """
     Checks if the coordinates are correct
@@ -91,6 +92,7 @@ def validate_coordinates():
 X = 0
 Y = 0
 
+
 def populate_board(board):
     """
     Adds all the elements needed to start playing the game to the board
@@ -98,7 +100,8 @@ def populate_board(board):
     print(board.name+"'s board:")
     board.add_ship(X, Y)
     board.print()
-    
+
+
 def make_guess(board):
     """
     function that lets the computer make a choice
@@ -108,6 +111,7 @@ def make_guess(board):
     r = randint(0, 4)
     w = randint(0, 4)
     return r, w
+
 
 def play_game(computer_board, player_board):
     """
@@ -131,6 +135,7 @@ def play_game(computer_board, player_board):
         scores['computer'] += 1
     else:
         print("computer missed this time")
+
 
 def new_game():
     """
@@ -195,5 +200,3 @@ def new_game():
         round = round + 1
 
 new_game()
-
-
