@@ -145,6 +145,7 @@ def new_game():
     print("\n")
     print("Welcome to battleships")
     print(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5")
+    print("ships may duplicate on the same row and column")
     print("Top left corner is row:0 column:0")
     print("Click run program to restart game")
     print("\n")
