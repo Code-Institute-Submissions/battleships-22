@@ -1,4 +1,6 @@
+import time 
 from random import randint
+from termcolor import colored, cprint
 
 scores = {'computer': 0, 'player': 0}
 
@@ -132,6 +134,30 @@ def play_game(computer_board, player_board):
     else:
         print("computer missed this time")
 
+def start_game(player_board, computer_board, player_name):
+    populate_board(player_board)
+    populate_board(computer_board)
+    for index in range(5):
+        print("Round ", index + 1)
+        validate_coordinates()
+
+        play_game(computer_board, player_board)
+        print(f"\n{player_name}'s board:")
+        player_board.print()
+        print("Computer's board:")
+        computer_board.print()
+        print("The scores are:")
+        print(f" Player:{scores['player']} Computer:{scores['computer']}")
+    
+    print("\ngame has ended")
+    print("The scores are:")
+    print(f" Player:{scores['player']} Computer:{scores['computer']}")
+    if scores['player'] > scores['computer']:
+        print('You win!')
+    elif scores['player'] == scores['computer']:
+        print('Its a draw!')
+    else:
+        print('You lose better luck next time!')
 
 def new_game():
     """
@@ -143,57 +169,36 @@ def new_game():
     scores["computer"] = 0
     scores["player"] = 0
     print("\n")
+    cprint('Hello, World!', 'green')
+    text = colored('Hello, World!', 'red', attrs=['reverse', 'blink'])
+    print(text)
     print("Welcome to battleships")
+    time.sleep(1)
     print(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5")
+    time.sleep(1)
     print("ships may duplicate on the same row and column")
+    time.sleep(1)
     print("Top left corner is row:0 column:0")
+    time.sleep(1)
     print("Click run program to restart game")
     print("\n")
     player_name = input("Please enter your name: \n")
+    while len(player_name) < 2:
+        print("Your name must be at least 2 characters long\n")
+        player_name = input("Please enter your name: \n")
     print("\n")
 
     computer_board = Board(size, num_ships, "Computer", board_type="computer")
     player_board = Board(size, num_ships, player_name, board_type="player")
-
-    for _ in range(1):
-        populate_board(player_board)
-        populate_board(computer_board)
-
+    
     running = True
-    round = 1
     while running:
-        coordinates = validate_coordinates()
-
-        play_game(computer_board, player_board)
-
-        print(f"\n{player_name}'s board:")
-        player_board.print()
-        print("Computer's board:")
-        computer_board.print()
-            
-        if round == 5:
-            print("\ngame has ended")
-            print("The scores are:")
-            print(f" Player:{scores['player']} Computer:{scores['computer']}")
-            if scores['player'] > scores['computer']:
-                print('You win!')
-            elif scores['player'] == scores['computer']:
-                print('Its a draw!')
-            else:
-                print('You lose better luck next time!')
-            running = False
-        else:
-            print("\nafter this round the scores are:")
-            print(f"Player:{scores['player']} Computer:{scores['computer']}")
-            
-        print(f"\nEnd of round {round}")
-
+    
+        start_game(player_board, computer_board, player_name)
         cont = input("\nEnter n to quit or anything else to continue : \n")
         if cont == "n":
             print("\nGame has ended the scores are: ")
             print(f"Player:{scores['player']} Computer:{scores['computer']}")
             running = False
-
-        round = round + 1
 
 new_game()
