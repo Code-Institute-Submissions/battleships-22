@@ -65,29 +65,29 @@ def validate_coordinates():
     """
     active = True
     while active:
-        x = input("\nGuess a row: \n")
-        y = input("Guess a column: \n")
+        x = input(colored("\nGuess a row: \n", 'green'))
+        y = input(colored("Guess a column: \n", 'green'))
         try:
             global xi
             global yi 
             xi = int(x)
             yi = int(y)
             if xi < 0 or yi < 0:
-                print("Numbers must be between 0 and 4")
+                print(colored("Numbers must be between 0 and 4", 'red'))
                 continue
             elif xi > 4 or yi > 4:
-                print("Numbers must be between 0 and 4")
+                print(colored("Numbers must be between 0 and 4", 'red'))
                 continue
             elif [xi, yi] in user_inputs:
-                print("You cannot choose a row and column more than once")
+                print(colored("You cannot choose a row and column more than once", 'red'))
                 continue
             else:
                 user_inputs.append([xi, yi])
-                print("\nplayer guessed: "+str(xi), ",", str(yi))
+                print(colored("\nplayer guessed: "+str(xi)+ ","+ str(yi), 'green'))
                 active = False
                 return xi, yi
         except ValueError:
-            print("You must enter a number between 0 and 4")
+            print(colored("You must enter a number between 0 and 4", 'red'))
             continue
 
 
@@ -95,7 +95,7 @@ def populate_board(board):
     """
     Adds all the elements needed to start playing the game to the board
     """
-    print(board.name+"'s board:")
+    print(colored(board.name+"'s board:", 'blue'))
     board.add_ship()
     board.print()
 
@@ -117,47 +117,51 @@ def play_game(computer_board, player_board):
     """
     cph = computer_board.guess(xi, yi)
     if cph == "Hit":
-        print("player scored a hit")
+        print(colored('Player scored a hit!', 'green'))
         scores['player'] += 1
     else:
-        print("player missed this time")
+        print(colored('Player missed this time!', 'green'))
 
     make_guess(computer_board)
     
-    print("\ncomputer guessed: "+str(r), ",", str(w))
+    print(colored("\ncomputer guessed: "+str(r)+ ","+ str(w), 'red'))
 
     ph = player_board.guess(r, w)
 
     if ph == "Hit":
-        print("computer scored a hit")
+        print(colored('Computer scored a hit!', 'red'))
         scores['computer'] += 1
     else:
-        print("computer missed this time")
+        print(colored('Computer missed this time!', 'red'))
 
 def start_game(player_board, computer_board, player_name):
+    """
+    Starts the game and lets player play for 5 rounds
+    """
+
     populate_board(player_board)
     populate_board(computer_board)
     for index in range(5):
-        print("Round ", index + 1)
+        print(colored("\nRound " + str(index + 1), 'yellow'))
         validate_coordinates()
 
         play_game(computer_board, player_board)
-        print(f"\n{player_name}'s board:")
+        pb = colored(f"\n{player_name}'s board:", 'blue')
+        print(pb)
         player_board.print()
-        print("Computer's board:")
+        cb = colored("Computer's board:", 'blue')
+        print(cb)
         computer_board.print()
-        print("The scores are:")
-        print(f" Player:{scores['player']} Computer:{scores['computer']}")
+        print(colored("\nThe scores are:", 'magenta'))
+        print(colored(f" Player:{scores['player']} Computer:{scores['computer']}", 'magenta'))
     
-    print("\ngame has ended")
-    print("The scores are:")
-    print(f" Player:{scores['player']} Computer:{scores['computer']}")
+    print(colored("\ngame has ended", 'yellow'))
     if scores['player'] > scores['computer']:
         print('You win!')
     elif scores['player'] == scores['computer']:
-        print('Its a draw!')
+        print(colored('Its a draw!', 'yellow'))
     else:
-        print('You lose better luck next time!')
+        print(colored('You lose better luck next time!', 'yellow'))
 
 def new_game():
     """
@@ -168,24 +172,24 @@ def new_game():
     num_ships = 4
     scores["computer"] = 0
     scores["player"] = 0
+    print(colored('Welcome to battleships', 'cyan', ))
+    time.sleep(1)
+    game_info = colored(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5", 'cyan')
+    print(game_info)
+    time.sleep(1)
+    print(colored("ships may duplicate on the same row and column", 'yellow'))
+    time.sleep(1)
+    print(colored("Top left corner is row:0 column:0", 'magenta'))
+    time.sleep(1)
+    print(colored("Click run program to restart game", 'magenta'))
+    time.sleep(1)
     print("\n")
-    cprint('Hello, World!', 'green')
-    text = colored('Hello, World!', 'red', attrs=['reverse', 'blink'])
-    print(text)
-    print("Welcome to battleships")
     time.sleep(1)
-    print(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5")
-    time.sleep(1)
-    print("ships may duplicate on the same row and column")
-    time.sleep(1)
-    print("Top left corner is row:0 column:0")
-    time.sleep(1)
-    print("Click run program to restart game")
-    print("\n")
-    player_name = input("Please enter your name: \n")
+    global player_name
+    player_name = input(colored("Please enter your name: \n", 'green'))
     while len(player_name) < 2:
-        print("Your name must be at least 2 characters long\n")
-        player_name = input("Please enter your name: \n")
+        print(colored("Your name must be at least 2 characters long\n", 'red'))
+        player_name = input(colored("Please enter your name: \n", 'green'))
     print("\n")
 
     computer_board = Board(size, num_ships, "Computer", board_type="computer")
@@ -195,10 +199,10 @@ def new_game():
     while running:
     
         start_game(player_board, computer_board, player_name)
-        cont = input("\nEnter n to quit or anything else to continue : \n")
+        cont = input(colored("\nEnter n to quit or anything else to continue : \n", 'green'))
         if cont == "n":
-            print("\nGame has ended the scores are: ")
-            print(f"Player:{scores['player']} Computer:{scores['computer']}")
+            print(colored("\nGame has ended the scores are: ", 'yellow'))
+            print(colored(f"Player:{scores['player']} Computer:{scores['computer']}", 'yellow'))
             running = False
 
 new_game()
