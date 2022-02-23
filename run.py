@@ -163,7 +163,7 @@ def start_game(player_board, computer_board, player_name):
         computer_board.print()
         time.sleep(1)
         print(colored("\nThe scores are:", 'magenta'))
-        print(colored(f" Player:{scores['player']} Computer:{scores['computer']}", 'magenta'))
+        print(colored(f"Player:{scores['player']} Computer:{scores['computer']}", 'magenta'))
         time.sleep(1)
     
     print(colored("\ngame has ended", 'yellow'))
