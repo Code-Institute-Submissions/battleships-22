@@ -29,7 +29,7 @@ class Board:
 
     def guess(self, x, y):
         """
-        guesses where the ships might be
+        Marks where a guess was made and if it was a hit or miss
         """
         self.guesses.append((x, y))
         self.board[x][y] = "X"
@@ -42,7 +42,7 @@ class Board:
 
     def add_ship(self, type="computer"):
         """
-        adds a ship
+        adds a ship at a random place on the board
         """
         num_ships = 4
         active = True
@@ -56,12 +56,12 @@ class Board:
                 if self.type == "player":
                     self.board[R][T] = "@"
 
-user_inputs = []
+user_inputs = []   # This is where guesses that the user has made are stored
 
 
 def validate_coordinates():
     """
-    Checks if the coordinates are correct
+    Checks if the coordinates are valid
     """
     active = True
     while active:
@@ -117,10 +117,10 @@ def make_guess(board):
 
 def play_game(computer_board, player_board):
     """
-    Lets user play the game
+    Lets user know what they or the computer guessed and who scored
     """
     cph = computer_board.guess(xi, yi)
-    if cph == "Hit":
+    if cph == "Hit":                          # Determines if player scored
         print(colored('Player scored a hit!', 'green'))
         time.sleep(0.5)
         scores['player'] += 1
@@ -135,7 +135,7 @@ def play_game(computer_board, player_board):
 
     ph = player_board.guess(r, w)
 
-    if ph == "Hit":
+    if ph == "Hit":                     # Determines if computer scored
         print(colored('Computer scored a hit!', 'red'))
         time.sleep(0.5)
         scores['computer'] += 1
@@ -151,28 +151,31 @@ def start_game(player_board, computer_board, player_name):
 
     populate_board(player_board)
     populate_board(computer_board)
-    for index in range(5):
+    for index in range(5):         # This loop lets player play for 5 rounds
         print(colored("\nRound " + str(index + 1), 'yellow'))
         time.sleep(0.5)
         validate_coordinates()
 
         play_game(computer_board, player_board)
+
         pb = colored(f"\n{player_name}'s board:", 'blue')
         print(pb)
         player_board.print()
         time.sleep(1)
+
         cb = colored("Computer's board:", 'blue')
         print(cb)
         computer_board.print()
         time.sleep(1)
+
         print(colored("\nThe scores are:", 'magenta'))
         tscore = f"Player:{scores['player']} Computer:{scores['computer']}"
         print(colored(tscore, 'magenta'))
         time.sleep(1)
     
     print(colored("\ngame has ended", 'yellow'))
-    if scores['player'] > scores['computer']:
-        print('You win!')
+    if scores['player'] > scores['computer']:        # This if statement tells
+        print('You win!')                            # user the outcome of game
     elif scores['player'] == scores['computer']:
         print(colored('Its a draw!', 'yellow'))
     else:
@@ -220,12 +223,12 @@ def new_game():
     player_board = Board(size, num_ships, player_name, board_type="player")
     
     running = True
-    while running:
-    
+    while running:  # Lets player decide if they want to contiue playing
+
         start_game(player_board, computer_board, player_name)
-        inp = "\nEnter n to quit or anything else to continue : \n"
+        inp = "\nEnter n to quit or anything else to continue : \n" 
         cont = input(colored(inp, 'green'))
-        if cont == "n":
+        if cont == "n":      
             print(colored("\nGame has ended the scores are: ", 'yellow'))
             score1 = f"Player:{scores['player']}"
             score2 = f" Computer:{scores['computer']}"
