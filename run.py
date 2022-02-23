@@ -84,6 +84,7 @@ def validate_coordinates():
             else:
                 user_inputs.append([xi, yi])
                 print(colored("\nplayer guessed: "+str(xi)+ ","+ str(yi), 'green'))
+                time.sleep(0.25)
                 active = False
                 return xi, yi
         except ValueError:
@@ -119,21 +120,26 @@ def play_game(computer_board, player_board):
     cph = computer_board.guess(xi, yi)
     if cph == "Hit":
         print(colored('Player scored a hit!', 'green'))
+        time.sleep(0.5)
         scores['player'] += 1
     else:
         print(colored('Player missed this time!', 'green'))
+        time.sleep(0.5)
 
     make_guess(computer_board)
     
     print(colored("\ncomputer guessed: "+str(r)+ ","+ str(w), 'red'))
+    time.sleep(0.25)
 
     ph = player_board.guess(r, w)
 
     if ph == "Hit":
         print(colored('Computer scored a hit!', 'red'))
+        time.sleep(0.5)
         scores['computer'] += 1
     else:
         print(colored('Computer missed this time!', 'red'))
+        time.sleep(0.5)
 
 def start_game(player_board, computer_board, player_name):
     """
