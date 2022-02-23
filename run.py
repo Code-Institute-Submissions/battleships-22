@@ -150,17 +150,21 @@ def start_game(player_board, computer_board, player_name):
     populate_board(computer_board)
     for index in range(5):
         print(colored("\nRound " + str(index + 1), 'yellow'))
+        time.sleep(0.5)
         validate_coordinates()
 
         play_game(computer_board, player_board)
         pb = colored(f"\n{player_name}'s board:", 'blue')
         print(pb)
         player_board.print()
+        time.sleep(1)
         cb = colored("Computer's board:", 'blue')
         print(cb)
         computer_board.print()
+        time.sleep(1)
         print(colored("\nThe scores are:", 'magenta'))
         print(colored(f" Player:{scores['player']} Computer:{scores['computer']}", 'magenta'))
+        time.sleep(1)
     
     print(colored("\ngame has ended", 'yellow'))
     if scores['player'] > scores['computer']:
