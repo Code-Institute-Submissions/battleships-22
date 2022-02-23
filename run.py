@@ -29,7 +29,7 @@ class Board:
 
     def guess(self, x, y):
         """
-        Marks where a guess was made and if it was a hit or miss
+        Marks where a guess was made and if it was a hit or if it miss
         """
         self.guesses.append((x, y))
         self.board[x][y] = "X"
