@@ -79,11 +79,13 @@ def validate_coordinates():
                 print(colored("Numbers must be between 0 and 4", 'red'))
                 continue
             elif [xi, yi] in user_inputs:
-                print(colored("You cannot choose a row and column more than once", 'red'))
+                long = colored("Choice must be unique", 'red')
+                print(long)
                 continue
             else:
                 user_inputs.append([xi, yi])
-                print(colored("\nplayer guessed: "+str(xi)+ ","+ str(yi), 'green'))
+                yg = "\nYour guess:"+str(xi) + ", " + str(yi)
+                print(colored(yg, 'green'))
                 time.sleep(0.25)
                 active = False
                 return xi, yi
@@ -128,7 +130,7 @@ def play_game(computer_board, player_board):
 
     make_guess(computer_board)
     
-    print(colored("\ncomputer guessed: "+str(r)+ ","+ str(w), 'red'))
+    print(colored("\ncomputer guessed: "+str(r) + "," + str(w), 'red'))
     time.sleep(0.25)
 
     ph = player_board.guess(r, w)
@@ -140,6 +142,7 @@ def play_game(computer_board, player_board):
     else:
         print(colored('Computer missed this time!', 'red'))
         time.sleep(0.5)
+
 
 def start_game(player_board, computer_board, player_name):
     """
@@ -163,7 +166,8 @@ def start_game(player_board, computer_board, player_name):
         computer_board.print()
         time.sleep(1)
         print(colored("\nThe scores are:", 'magenta'))
-        print(colored(f"Player:{scores['player']} Computer:{scores['computer']}", 'magenta'))
+        tscore = f"Player:{scores['player']} Computer:{scores['computer']}"
+        print(colored(tscore, 'magenta'))
         time.sleep(1)
     
     print(colored("\ngame has ended", 'yellow'))
@@ -173,6 +177,7 @@ def start_game(player_board, computer_board, player_name):
         print(colored('Its a draw!', 'yellow'))
     else:
         print(colored('You lose better luck next time!', 'yellow'))
+
 
 def new_game():
     """
@@ -187,7 +192,8 @@ def new_game():
     print(colored('Welcome to battleships', 'cyan', ))
     time.sleep(0.75)
 
-    game_info = colored(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5", 'cyan')
+    info = f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5"
+    game_info = colored(info, 'cyan')
     print(game_info)
     time.sleep(0.75)
 
@@ -217,10 +223,14 @@ def new_game():
     while running:
     
         start_game(player_board, computer_board, player_name)
-        cont = input(colored("\nEnter n to quit or anything else to continue : \n", 'green'))
+        inp = "\nEnter n to quit or anything else to continue : \n"
+        cont = input(colored(inp, 'green'))
         if cont == "n":
             print(colored("\nGame has ended the scores are: ", 'yellow'))
-            print(colored(f"Player:{scores['player']} Computer:{scores['computer']}", 'yellow'))
+            score1 = f"Player:{scores['player']}"
+            score2 = f" Computer:{scores['computer']}"
+            score3 = score1+score2
+            print(colored(score3, 'yellow'))
             running = False
 
 new_game()
