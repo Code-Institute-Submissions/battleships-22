@@ -94,7 +94,6 @@ they have played 5 rounds when they have played 5 rounds the game ends.
 ## Missing features
 
 ### If I had more time I would have:
-- Found a way to add make the terminal text colored
 - Found a way to stop ships from being duplicated
 
 ## Technologies
