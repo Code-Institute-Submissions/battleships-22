@@ -98,6 +98,7 @@ def populate_board(board):
     print(colored(board.name+"'s board:", 'blue'))
     board.add_ship()
     board.print()
+    time.sleep(0.75)
 
 
 def make_guess(board):
@@ -172,21 +173,28 @@ def new_game():
     num_ships = 4
     scores["computer"] = 0
     scores["player"] = 0
+
     print(colored('Welcome to battleships', 'cyan', ))
-    time.sleep(1)
+    time.sleep(0.75)
+
     game_info = colored(f"Board size: {size}. Number of ships: {num_ships}. Rounds: 5", 'cyan')
     print(game_info)
-    time.sleep(1)
+    time.sleep(0.75)
+
     print(colored("ships may duplicate on the same row and column", 'yellow'))
-    time.sleep(1)
+    time.sleep(0.75)
+
     print(colored("Top left corner is row:0 column:0", 'magenta'))
-    time.sleep(1)
+    time.sleep(0.75)
+
     print(colored("Click run program to restart game", 'magenta'))
-    time.sleep(1)
+    time.sleep(0.75)
+
     print("\n")
-    time.sleep(1)
     global player_name
     player_name = input(colored("Please enter your name: \n", 'green'))
+    time.sleep(0.5)
+
     while len(player_name) < 2:
         print(colored("Your name must be at least 2 characters long\n", 'red'))
         player_name = input(colored("Please enter your name: \n", 'green'))
