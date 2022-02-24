@@ -124,9 +124,6 @@ are no significant errors in my code
 * Sometimes the ships can be duplicated on the same row 
 and column
 
-* Having to confirm that you want to continue might 
-become tedious
-
 ## Deployment
 
 I deployed my site to heroku using the following steps:
@@ -156,3 +153,5 @@ Here is the code I added using the scoping video
 ![Code2](images/2.png)
 
 ![Code3](images/3.png)
+
+- I would also like to thank my mentor Seun for giving me great suggestions on how to improve my game
